@@ -5,8 +5,9 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
 const app = express();
+const session = require('express-session');
+const authController = require('./controllers/auth.js')
 
-// Set the port from environment variable or default to 3000
 const port = process.env.PORT ? process.env.PORT : "3000";
 
 mongoose.connect(process.env.MONGODB_URI);
@@ -23,6 +24,26 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: false }));
 // Middleware for using HTTP verbs such as PUT or DELETE
 app.use(methodOverride("_method"));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+const addUserToReqAndLocals = require('./middleware/addUserToReqAndLocals.js');
+app.use(addUserToReqAndLocals);
+
+
+
+
+// custom middleware
+app.use('/auth', authController);
+// app.use('/users', userCreatureCtrl);
+
+
+
 
 
 app.get('/', async (req, res) => {

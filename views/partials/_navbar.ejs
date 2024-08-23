@@ -1,3 +1,11 @@
 <nav>
-    
+    <% if (user) { %>
+        <a href="/">Home</a>
+        <!-- <a href="../users/index.ejs">My Dino's</a> -->
+        <a href="">Create Dino</a>
+        <a href="">Sign Out</a>
+    <% } else { %>
+        <a href="../auth/login.js">Login</a>
+        <a href="../auth/sign-up.js">Sign Up</a>
+    <% } %>
 </nav>
