@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Creature = require('../models/creature'); // Assuming your model is in the models directory
 const creatures = require('../data copy.js')
 
-// mongoose.connect('mongodb+srv://pmck6387:rootbeer23@cluster0.zjfwf.mongodb.net/Arkenetics?retryWrites=true&w=majority&appName=Cluster0')
+// mongoose.connect('insert your URI')
 //     .then(() => console.log('MongoDB connected...'))
 //     .catch(err => console.log(err));
 const creaturesObject = creatures.CREATURES

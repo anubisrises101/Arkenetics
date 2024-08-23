@@ -34,13 +34,12 @@ app.use(
 
 const addUserToReqAndLocals = require('./middleware/addUserToReqAndLocals.js');
 app.use(addUserToReqAndLocals);
-
-
-
-
 // custom middleware
 app.use('/auth', authController);
-// app.use('/users', userCreatureCtrl);
+
+// Routes
+
+
 
 
 
