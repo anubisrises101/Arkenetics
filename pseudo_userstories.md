@@ -38,3 +38,128 @@ TEST after completing each route to ensure functionality
 // Upon selecting a food item in the index.ejs it directs you to the foods page where it SHOWS all the info of the food you selected
 // Write in the HTML element to create a button below the food info to DELETE the food.
 // Write the function to deleteFood by findByIdAndDelete and redirect to '/index.ejs'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- write a script to seed my database of creatures -->
+
+<!-- copy one creature, i have an array of objects that looks like this..... how can i seed my mongo DB?  , what should my model look like?-->
+
+// seed 
+const mongoose = require('mongoose');
+const Dinosaur = require('./models/Dinosaur'); // Assuming your model is in the models directory
+
+mongoose.connect('mongodb://localhost:27017/dinosaurDB', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected...'))
+    .catch(err => console.log(err));
+
+const dinosaurData = [
+    {
+        id: "allosaurus",
+        name: "Allosaurus",
+        eats: [
+            "Superior Kibble|85", 
+            "Diplodocus Kibble", 
+            "Raw Mutton", 
+            "Raw Prime Meat", 
+            "Cooked Lamb Chop", 
+            "Cooked Prime Meat", 
+            "Raw Prime Fish Meat", 
+            "Raw Meat", 
+            "Cooked Prime Fish Meat", 
+            "Cooked Meat", 
+            "Raw Fish Meat", 
+            "Cooked Fish Meat"
+        ],
+        egg: "Allosaurus Egg",
+        bs: {
+            h: { b: 630, w: 126, t: 5.4 },
+            s: { b: 250, w: 25, t: 10 },
+            o: { b: 150, w: 15, t: 10 },
+            f: { b: 3000, w: 300, t: 10 },
+            w: { b: 380, w: 7.6, t: 4 },
+            d: {
+                b: 100,
+                w: 5,
+                t: 1.7,
+                a: [{ b: 35 }, { b: 25 }]
+            },
+            m: {
+                b: 100,
+                w: null,
+                t: 2.5,
+                a: {
+                    w: { b: 650, sw: 1404, st: 1579.5 },
+                    s: { b: 300 }
+                }
+            },
+            t: { b: 1000, w: 60, t: null }
+        },
+        carry: ["quetzal", "wyvern"],
+        desc: "The Allosaurus is a pack-hunting theropod that's smaller but faster than Rex. When in packs of 3 or more, the highest level Allosaurus will become the pack leader, emitting a red aura and making it stronger in battle."
+    }
+];
+
+Dinosaur.insertMany(dinosaurData)
+    .then(() => {
+        console.log('Data seeded successfully');
+        mongoose.connection.close();
+    })
+    .catch(err => console.log(err));
+
+
+
+
+// schema 
+
+const mongoose = require('mongoose');
+
+const dinosaurSchema = new mongoose.Schema({
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    eats: [String],
+    egg: String,
+    bs: {
+        h: { b: Number, w: Number, t: Number },
+        s: { b: Number, w: Number, t: Number },
+        o: { b: Number, w: Number, t: Number },
+        f: { b: Number, w: Number, t: Number },
+        w: { b: Number, w: Number, t: Number },
+        d: {
+            b: Number,
+            w: Number,
+            t: Number,
+            a: [{ b: Number }]
+        },
+        m: {
+            b: Number,
+            w: Number,
+            t: Number,
+            a: {
+                w: { b: Number, sw: Number, st: Number },
+                s: { b: Number }
+            }
+        },
+        t: { b: Number, w: Number, t: Number }
+    },
+    carry: [String],
+    desc: String
+});
+
+const Dinosaur = mongoose.model('Dinosaur', dinosaurSchema);
+
+module.exports = Dinosaur;
+
