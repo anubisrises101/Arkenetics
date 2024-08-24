@@ -11,12 +11,7 @@ router.get('/', async (req, res) => {
     res.render('usercreatures/index.ejs', {creatures});
 });
 
-router.get('/', async (req, res) => {
-    const allRecipes = await Recipe.find({});
-    res.render('recipes/index.ejs', {
-        recipes: allRecipes,
-    });
-  });
+
 
 // do this for seeing all users creatures
 // const creatures = await UserCreature.find({}).populate('user');
@@ -30,3 +25,5 @@ router.get('/', async (req, res) => {
 // creatureObj.user = req.user._id;
 // Create the userCreature 
 // const userCreature = UserCreature.create(creatureObj);
+
+module.exports = router;

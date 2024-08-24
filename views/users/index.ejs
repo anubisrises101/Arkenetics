@@ -4,21 +4,27 @@
 <div id="description">
     <p>SUP </p>
 </div>
-<img src="" alt="" id="logo">
-<div id="content">
-    <% if (recipes.length) { %>
-        <select name="name"></select>>
-          <% recipes.forEach((recipe) => { %>
-          <li>
-            <a href="/recipes/<%= recipe._id %>"> <%= recipe.name %></a>
-          </li>
-          <% }) %>
-        </ul>
-      <% } else { %>
-        <p>"There are no Recipes in storage!"</p>
-      <% } %>
+<div id="logoBox">
+    <img src="" alt="" id="logo">
 </div>
 
+<% if (userCreatures.length) { %>
+    <ul>
+        <% userCreatures.forEach((creature) => { %>
+        <li>
+            <a href=""> <%= creature.name %> </a>
+        </li>
+        <% }) %>
+    </ul>
+<% } %>
 
+<% if (allCreatures.length) { %>
+    <select name="name"></select>
+      <% allCreatures.forEach((creature) => { %>
+        <option value="<%= creature.name %>"><%= creature.name %></option>
+      <% }) %>
+  <% } else { %>
+    <h1>IT ISNT WORKING YOU DOLT</h1>
+  <% } %>
 
 <%- include('../partials/footer.ejs') %>

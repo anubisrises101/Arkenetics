@@ -33,10 +33,15 @@ app.use(
 );
 
 const addUserToReqAndLocals = require('./middleware/addUserToReqAndLocals.js');
+const ensureLoggedIn = require('./middleware/ensureLoggedIn.js');
+
+
+
 app.use(addUserToReqAndLocals);
-// custom middleware
 app.use('/auth', require('./controllers/auth'));
-// app.use('/users/creatures', )
+app.use(ensureLoggedIn)
+app.use('/users/creatures', require('./controllers/userCreatures.js'))
+app.use('/creatures', require('./controllers/creatures.js'))
 // Routes
 
 
@@ -44,7 +49,7 @@ app.use('/auth', require('./controllers/auth'));
 
 app.get('/', async (req, res) => {
     res.render('home.ejs');
-  });
+});
 
 
 
