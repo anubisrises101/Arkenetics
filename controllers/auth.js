@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
       req.session.user = { _id: user._id };
       req.session.save();
       // Perhaps update to some other functionality
-      return res.redirect('/users');
+      return res.redirect(`/users/creatures/${user._id}`);
     } else {
       return res.redirect('/auth/login');
     }

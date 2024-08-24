@@ -19,10 +19,13 @@
 <% } %>
 
 <% if (allCreatures.length) { %>
-    <select name="name"></select>
-      <% allCreatures.forEach((creature) => { %>
-        <option value="<%= creature.name %>"><%= creature.name %></option>
-      <% }) %>
+    <form>
+        <select name="name">
+        <% allCreatures.forEach((creature) => { %>
+            <option><%= creature.name %></option>
+        <% }) %>
+        </select>
+    </form>
   <% } else { %>
     <h1>IT ISNT WORKING YOU DOLT</h1>
   <% } %>

@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user.js");
-const UserCreatures = require('../models/userCreature,js')
+const UserCreature = require('../models/userCreature.js')
+const Creature = require('../models/creature.js')
 
 // GET /users - Get all users
 // router.get('/', async (req, res) => {
@@ -19,7 +20,8 @@ router.get('/', async (req, res) => {
 
 // // GET /users/:userId
 router.get('/:userId', async (req, res) => {
-    const userCreatures = await userCreatures.find({user: req.params.userId});
+    const userCreatures = await UserCreature.find({user: req.params.userId});
+    console.log(userCreatures)
     const allCreatures = await Creature.find({});
     res.render('users/index.ejs', {allCreatures, userCreatures});
 });

@@ -8,7 +8,7 @@ const router = express.Router();
 //GET /users/creatures (index functionality)
 router.get('/', async (req, res) => {
     const creatures = await UserCreature.find({user: req.user._id});
-    res.render('usercreatures/index.ejs', {creatures});
+    res.render('users/index.ejs', {creatures});
 });
 
 

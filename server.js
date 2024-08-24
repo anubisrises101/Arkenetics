@@ -39,8 +39,8 @@ const ensureLoggedIn = require('./middleware/ensureLoggedIn.js');
 
 app.use(addUserToReqAndLocals);
 app.use('/auth', require('./controllers/auth'));
-app.use(ensureLoggedIn)
-app.use('/users/creatures', require('./controllers/userCreatures.js'))
+// app.use(ensureLoggedIn)
+app.use('/users/creatures', ensureLoggedIn, require('./controllers/users.js'))
 app.use('/creatures', require('./controllers/creatures.js'))
 // Routes
 
