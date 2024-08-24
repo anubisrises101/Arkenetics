@@ -1,11 +1,16 @@
 <nav>
-    <% if (user) { %>
-        <a href="/">Home</a>
-        <!-- <a href="../users/index.ejs">My Dino's</a> -->
-        <a href="">Create Dino</a>
-        <a href="">Sign Out</a>
-    <% } else { %>
-        <a href="../auth/login.js">Login</a>
-        <a href="../auth/sign-up.js">Sign Up</a>
-    <% } %>
-</nav>
+    <!-- Put links that you want to display at all times
+         outside of the if/else 
+    -->
+    <a href="/">HOME</a>
+    <div>
+      <% if (user) { %>
+        <a href="/todos/new">Protected Route</a>&nbsp;&nbsp;
+        <a href="/auth/logout">LOG OUT</a>&nbsp;&nbsp;
+        <span>Wecome, <%= user.username %></span>
+      <% } else { %>
+        <a href="/auth/sign-up">SIGN UP</a>
+        <a href="/auth/login">LOG IN</a>
+      <% } %>
+      </div>
+  </nav>

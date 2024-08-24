@@ -6,7 +6,7 @@ const methodOverride = require("method-override");
 const morgan = require("morgan");
 const app = express();
 const session = require('express-session');
-const authController = require('./controllers/auth.js')
+// const authController = require('./controllers/auth.js')
 
 const port = process.env.PORT ? process.env.PORT : "3000";
 
@@ -35,12 +35,9 @@ app.use(
 const addUserToReqAndLocals = require('./middleware/addUserToReqAndLocals.js');
 app.use(addUserToReqAndLocals);
 // custom middleware
-app.use('/auth', authController);
+app.use('/auth', require('./controllers/auth'));
 
 // Routes
-
-
-
 
 
 
