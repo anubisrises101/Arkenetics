@@ -1,4 +1,24 @@
-<%- include('./partials/header.ejs') %>
-<%- include('./partials/_navbar.ejs') %>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/_navbar.ejs') %>
 
-<%- include('./partials/footer.ejs') %>
+<div id="description">
+    <p>SUP </p>
+</div>
+<img src="" alt="" id="logo">
+<div id="content">
+    <% if (recipes.length) { %>
+        <select name="name"></select>>
+          <% recipes.forEach((recipe) => { %>
+          <li>
+            <a href="/recipes/<%= recipe._id %>"> <%= recipe.name %></a>
+          </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p>"There are no Recipes in storage!"</p>
+      <% } %>
+</div>
+
+
+
+<%- include('../partials/footer.ejs') %>
