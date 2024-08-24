@@ -19,11 +19,11 @@ router.get('/', async (req, res) => {
 
 
 // assume creature is a Creature document
-// const creatureObj = creature.toObject();
+const creatureObj = creature.toObject();
 // don't want to use _id from original creature
-// delete creatureObj._id;
-// creatureObj.user = req.user._id;
+delete creatureObj._id;
+creatureObj.user = req.user._id;
 // Create the userCreature 
-// const userCreature = UserCreature.create(creatureObj);
+const userCreature = UserCreature.create(creatureObj);
 
 module.exports = router;

@@ -1,6 +1,7 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/_navbar.ejs') %>
 
+
 <div id="description">
     <p>SUP </p>
 </div>
@@ -20,7 +21,29 @@
 
 <% if (allCreatures.length) { %>
     <form>
-        <select name="name">
+        <label for="creature-dropdown">Select a creature:</label>
+        <select id="creature-dropdown" name="creatures" onchange="redirectToCreature()">
+            <option value="">--Select a creature--</option>
+            <% allCreatures.forEach((creature) { %>
+                <option value="<%= creature._id %>"><%= creature.name %></option>
+            <% }); %>
+        </select>
+    </form>
+    
+    <script>
+        function redirectToCreature() {
+            const selectedCreatureId = document.getElementById('creature-dropdown').value;
+            if (selectedCreatureId) {
+                window.location.href = `/creatures/${selectedCreatureId}`;
+            }
+        }
+    </script>
+    
+
+
+
+    <!-- <form>
+        <select name="name" onchange="redirectToPage()">
         <% allCreatures.forEach((creature) => { %>
             <option><%= creature.name %></option>
         <% }) %>
@@ -29,5 +52,14 @@
   <% } else { %>
     <h1>IT ISNT WORKING YOU DOLT</h1>
   <% } %>
+
+<script>
+    function redirectToPage() {
+        const selectedValue = document.getElementById('dropdown').value;
+        if (selectedValue) {
+            window.location.href = `/${selectedValue}`;
+        }
+    } -->
+<!-- </script> -->
 
 <%- include('../partials/footer.ejs') %>
