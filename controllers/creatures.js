@@ -20,6 +20,11 @@ router.get('/:userId', async (req, res) => {
 //     res.redirect(`/users/creatures/${req.user._id}`)
 // })
 
+// GET /creatures/new --> new functionality/action
+router.get('/new', async (req, res) => {
+    const creatures = await Creature.find({});
+    res.render('creatures/new.ejs', { creatures });
+});
 
 //hhow to create a userCreature obj
 module.exports = router;
