@@ -11,19 +11,14 @@ router.get('/', async (req, res) => {
     res.render('users/index.ejs', {creatures});
 });
 
+router.show('/:creatureId', async (req, res) => {
+    const creatureObj = creature.toObject();
+    delete creatureObj._id;
+    creatureObj.user = req.user._id;
+    const userCreature = UserCreature.create(creatureObj);
+    res.render('users/show.ejs', userCreature)
+})
 
 
-// do this for seeing all users creatures
-// const creatures = await UserCreature.find({}).populate('user');
-
-
-
-// assume creature is a Creature document
-const creatureObj = creature.toObject();
-// don't want to use _id from original creature
-delete creatureObj._id;
-creatureObj.user = req.user._id;
-// Create the userCreature 
-const userCreature = UserCreature.create(creatureObj);
 
 module.exports = router;

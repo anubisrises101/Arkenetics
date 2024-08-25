@@ -163,3 +163,19 @@ const Dinosaur = mongoose.model('Dinosaur', dinosaurSchema);
 
 module.exports = Dinosaur;
 
+
+
+
+
+
+<!-- <% if (allCreatures.length) { %>
+    <form>
+        <label for="creature-dropdown">Select a creature:</label>
+        <select id="creature-dropdown" name="creatures">
+            <option value="">--Select a creature--</option>
+            <% allCreatures.forEach(function(creature) { %>
+                <option value="<%= creature._id %>"><%= creature.name %></option>
+            <% }); %>
+        </select>
+    </form>
+<% } %> -->
