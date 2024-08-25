@@ -8,6 +8,7 @@ const app = express();
 const session = require('express-session');
 // const authController = require('./controllers/auth.js')
 
+
 const port = process.env.PORT ? process.env.PORT : "3000";
 
 mongoose.connect(process.env.MONGODB_URI);

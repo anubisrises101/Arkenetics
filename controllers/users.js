@@ -18,6 +18,8 @@ router.get('/', async (req, res) => {
     });
 });
 
+
+
 // // GET /users/:userId
 router.get('/:userId', async (req, res) => {
     const userCreatures = await UserCreature.find({user: req.params.userId});

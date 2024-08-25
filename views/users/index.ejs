@@ -24,7 +24,7 @@
         <label for="creature-dropdown">Select a creature:</label>
         <select id="creature-dropdown" name="creatures" onchange="redirectToCreature()">
             <option value="">--Select a creature--</option>
-            <% allCreatures.forEach((creature) { %>
+            <% allCreatures.forEach(function(creature) { %>
                 <option value="<%= creature._id %>"><%= creature.name %></option>
             <% }); %>
         </select>
@@ -34,7 +34,7 @@
         function redirectToCreature() {
             const selectedCreatureId = document.getElementById('creature-dropdown').value;
             if (selectedCreatureId) {
-                window.location.href = `/creatures/${selectedCreatureId}`;
+                window.location.href = `/creatures/${selectedCreatureId}/new`;
             }
         }
     </script>

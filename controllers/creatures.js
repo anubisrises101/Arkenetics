@@ -11,15 +11,12 @@ router.get('/', async (req, res) => {
     });
   });
 
-router.get('/creatures/:creatureId', async (req, res) => {
+router.get('/:creatureId/new', async (req, res) => {
     const creatureId = req.params.creatureId;
     try {
-        const creature = await Creature.findById(creatureId);
-        if (creature) {
-            res.render('users/edit.ejs', { creature });
-        } else {
-            res.status(404).send('Creature not found');
-        }
+        await Creature.findById(creatureId);
+        res.render('users/new.ejs', { creatureId });
+
     } catch (err) {
         res.status(500).send('Server error');
     }
