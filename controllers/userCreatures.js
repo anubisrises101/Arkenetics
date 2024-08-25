@@ -11,12 +11,12 @@ router.get('/', async (req, res) => {
     res.render('users/index.ejs', {creatures});
 });
 
-router.show('/:creatureId', async (req, res) => {
+router.create('/creatures', async (req, res) => {
     const creatureObj = creature.toObject();
     delete creatureObj._id;
     creatureObj.user = req.user._id;
     const userCreature = UserCreature.create(creatureObj);
-    res.render('users/show.ejs', userCreature)
+    res.render('users/index.ejs', userCreature)
 })
 
 
