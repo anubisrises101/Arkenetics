@@ -38,9 +38,29 @@ router.get('/new', async (req, res) => {
 //GET /creatures/:creatureId --> show functionality
 router.get('/:id', async (req, res)  => {
     const usercreature = await UserCreature.findById(req.params.id);
-
     res.render('creatures/show.ejs', {usercreature})
 })
+
+
+//GET /creatures/:id/edit --> edit functionality
+router.get('/:id', async (req, res) => {
+
+    res.render('creatures/edit.ejs')
+})
+
+// DELETE /creatures/:id --> delete functionality 
+router.delete('/:id', async (req, res) => {
+    try {
+        await UserCreature.findByIdAndDelete(req.params.id)
+        await req.user.save();
+        res.redirect('/creatures')
+    } catch (err) {
+        console.log(err)
+        res.redirect('/')
+    }
+})
+
+
 
 //hhow to create a userCreature obj
 module.exports = router;

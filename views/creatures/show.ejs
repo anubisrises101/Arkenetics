@@ -24,5 +24,8 @@
 </div>
 
 <button class="btn" onclick="location.href='./edit.ejs'">Edit <%= usercreature.name %></button>
+<form action="/creatures/<%= usercreature._id %>?_method=DELETE" method="POST">
+    <button type="submit">DELETE</button>
+  </form>
 
 <%- include('../partials/footer.ejs') %>
