@@ -37,7 +37,8 @@ router.get('/new', async (req, res) => {
 
 //GET /creatures/:creatureId --> show functionality
 router.get('/:id', async (req, res)  => {
-    const usercreature = await UserCreature.findById(req.params._id);
+    const usercreature = await UserCreature.findById(req.params.id);
+
     res.render('creatures/show.ejs', {usercreature})
 })
 

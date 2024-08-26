@@ -16,16 +16,11 @@ const creatureSchema = new mongoose.Schema({
             b: Number,
             w: Number,
             t: Number,
-            a: [{ b: Number }]
         },
         m: {
             b: Number,
             w: Number,
             t: Number,
-            a: {
-                w: { b: Number, sw: Number, st: Number },
-                s: { b: Number }
-            }
         },
         t: { b: Number, w: Number, t: Number }
     },
