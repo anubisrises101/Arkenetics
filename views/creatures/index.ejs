@@ -13,7 +13,7 @@
     <ul>
         <% creatures.forEach((creature) => { %>
         <li>
-            <a href=""> <%= creature.name %> </a>
+            <a href="/creatures/<%= creature._id %>"> <%= creature.name %> </a>
         </li>
         <% }) %>
     </ul>

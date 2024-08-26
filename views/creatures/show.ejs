@@ -1,4 +1,28 @@
-<%- include('./partials/header.ejs') %>
-<%- include('./partials/_navbar.ejs') %>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/_navbar.ejs') %>
 
-<%- include('./partials/footer.ejs') %>
+<h1>Displaying <%= usercreature.name %> </h1>
+<p id="descript">The information listed on this page is only BASE stats at level 1. To edit the creature to reflect your information please press Edit</p>
+
+<img src="" id="logo">
+<img src="" id="background">
+
+<div id="stats">
+    <h3>Name: <%= usercreature.name %></h3>
+    <p>Level: <%= usercreature.level %></p>
+    <p>Eats: <%= usercreature.eats %></p>
+    <p>Health: <%= usercreature.bs.h %></p>
+    <p>Stamina: <%= usercreature.bs.s %></p>
+    <p>Oxygen: <%= usercreature.bs.o %></p>
+    <p>Food: <%= usercreature.bs.f %></p>
+    <p>Weight: <%= usercreature.bs.w %></p>
+    <p>Melee: <%= usercreature.bs.d %></p>
+    <p>Speed: <%= usercreature.bs.m %></p>
+    <p>Torpor: <%= usercreature.bs.t %></p>
+    <p>Is carried by: <%= usercreature.carry %></p>
+    <p><%= usercreature.desc %></p>
+</div>
+
+<button class="btn" onclick="location.href='./edit.ejs'">Edit <%= usercreature.name %></button>
+
+<%- include('../partials/footer.ejs') %>

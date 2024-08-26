@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const creatureSchema = new mongoose.Schema({
     id: { type: String, required: true },
     name: { type: String, required: true },
+    level: Number,
     eats: [String],
     egg: String,
     bs: {

@@ -1,6 +1,6 @@
-const UserCreature = require('../models/userCreature');
 const express = require('express');
 const router = express.Router();
+const UserCreature = require('../models/userCreature');
 const Creature = require('../models/creature');
 
 // All paths start with '/creatures'
@@ -34,6 +34,12 @@ router.get('/new', async (req, res) => {
     const creatures = await Creature.find({});
     res.render('creatures/new.ejs', { creatures });
 });
+
+//GET /creatures/:creatureId --> show functionality
+router.get('/:id', async (req, res)  => {
+    const usercreature = await UserCreature.findById(req.params._id);
+    res.render('creatures/show.ejs', {usercreature})
+})
 
 //hhow to create a userCreature obj
 module.exports = router;

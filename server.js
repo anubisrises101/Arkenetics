@@ -27,6 +27,8 @@ app.use(
     saveUninitialized: true,
   })
 );
+// app.use(express.static('public'));
+// app.use(express.static('assets'));
 
 const addUserToReqAndLocals = require('./middleware/addUserToReqAndLocals.js');
 app.use(addUserToReqAndLocals);
