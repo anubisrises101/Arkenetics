@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    
   }
   
   body {
@@ -8,22 +9,33 @@
     height: 100vh;
     display: grid;
     /* grid-template-rows: 8vh 1fr 4vh; */
-    
+    background-image: url('https://i.imgur.com/jwUYdzb.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 20vmin;
   }
+
+#citation {
+  /* margin-top: 100vh; */
+  margin-bottom: 0vh;
+}
   
-  nav, footer {
-    background-color:lightblue;
+  nav, #citation {
+    background-color: blueviolet;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 2vmin;
     font-size: 2vh;
-    color: lightslategray;
+    color: rgb(0, 0, 0);
+    height: 7vh;
+    
   }
   
+
   nav a {
     text-decoration: none;
-    color: slategray;
+    color: rgb(0, 0, 0);
     background-color: white;
     padding: 1vmin;
     border-radius: 1vmin;

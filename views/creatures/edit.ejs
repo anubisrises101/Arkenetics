@@ -3,7 +3,7 @@
 
 <h1>Edit <%= usercreature.name %></h1>
 
-    <form action="/creatures/<%= usercreature._id %>?_method=PUT" method="post">
+    <form action="/creatures/<%= usercreature._id %>?_method=PUT" method="POST">
         <label for="name">Name: </label>
         <input type="text" name="name" id="name" value="<%= usercreature.name %>">
         <label for="level">Level: </label>
@@ -16,15 +16,15 @@
         <label for="oxygen">Oxygen: </label>
         <input type="number" name="oB" id="oxygen" value="<%= usercreature.bs.o.b %>">
         <label for="food">Food: </label>
-        <input type="number" name="fB" id="food" value="<%= usercreature.bs.f.b %> ">
+        <input type="number" name="fB" id="food" value="<%= usercreature.bs.f.b %>">
         <label for="weight">Weight: </label>
-        <input type="number" name="wB" id="weight" value=" <%= usercreature.bs.w.b %> ">
+        <input type="number" name="wB" id="weight" value="<%= usercreature.bs.w.b %>">
         <label for="melee">Melee: </label>
-        <input type="number" name="dB" id="melee" value=" <%= usercreature.bs.d.b %> ">
+        <input type="number" name="dB" id="melee" value="<%= usercreature.bs.d.b %>">
         <label for="speed">Speed: </label>
-        <input type="number" name="mB" id="speed" value=" <%= usercreature.bs.m.b %> ">
+        <input type="number" name="mB" id="speed" value="<%= usercreature.bs.m.b %>">
         <label for="torpor">Torpor: </label>
-        <input type="number" name="tB" id="torpor" value=" <%= usercreature.bs.t.b %> ">
+        <input type="number" name="tB" id="torpor" value="<%= usercreature.bs.t.b %>">
         <button type="submit">Update Creature</button>
     </form>
 

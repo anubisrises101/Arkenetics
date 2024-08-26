@@ -49,7 +49,26 @@ router.get('/:id/edit', async (req, res) => {
 })
 
 //PUT /creatures/:id --> update functionality
-// router.update('')
+router.put('/:id', async (req, res) => {
+    const usercreature = await UserCreature.findByIdAndUpdate(req.params.id, req.body);
+    console.log(req.body)
+    let updatedCreature = {
+        name: req.body.name,
+        level: req.body.level,
+        bs: {
+            h: {...usercreature.bs.h, b: req.body.hB},
+            s: {...usercreature.bs.s, b: req.body.sB},
+            o: {...usercreature.bs.o, b: req.body.oB},
+            f: {...usercreature.bs.f, b: req.body.fB},
+            w: {...usercreature.bs.w, b: req.body.wB},
+            d: {...usercreature.bs.d, b: req.body.dB},
+            m: {...usercreature.bs.m, b: req.body.mB},
+            t: {...usercreature.bs.t, b: req.body.tB},
+        },
+    }
+    await UserCreature.findByIdAndUpdate(req.params.id, updatedCreature);
+    res.redirect('/creatures')
+})
 
 // DELETE /creatures/:id --> delete functionality 
 router.delete('/:id', async (req, res) => {
