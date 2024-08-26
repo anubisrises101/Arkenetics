@@ -7,7 +7,7 @@
     margin: 0;
     height: 100vh;
     display: grid;
-    grid-template-rows: 8vh 1fr 4vh;
+    /* grid-template-rows: 8vh 1fr 4vh; */
   }
   
   nav, footer {

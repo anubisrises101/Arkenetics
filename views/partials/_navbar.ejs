@@ -5,6 +5,7 @@
     <a href="/">HOME</a>
     <div>
       <% if (user) { %>
+        <a href="/creatures">Your Creatures</a>
         <a href="/auth/logout">LOG OUT</a>&nbsp;&nbsp;
         <a href="/creatures/new">Add a Creature</a>
         <span>Wecome, <%= user.username %></span>

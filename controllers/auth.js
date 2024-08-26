@@ -10,10 +10,6 @@ router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
 });
 
-// router.get('/sign-up', (req, res) => {
-//   res.send('Hola Mundo');
-// });
-
 // POST /auth/sign-up (create user)
 router.post('/sign-up', async (req, res) => {
   try {
@@ -28,7 +24,7 @@ router.post('/sign-up', async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-  res.redirect('/');
+  res.redirect('/creatures');
 });
 
 // POST /auth/login (login user)
@@ -42,7 +38,7 @@ router.post('/login', async (req, res) => {
       req.session.user = { _id: user._id };
       req.session.save();
       // Perhaps update to some other functionality
-      return res.redirect(`/users/creatures/${user._id}`);
+      return res.redirect('/creatures');
     } else {
       return res.redirect('/auth/login');
     }

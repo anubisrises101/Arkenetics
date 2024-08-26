@@ -3,22 +3,31 @@ const express = require('express');
 const router = express.Router();
 const Creature = require('../models/creature');
 
-// all  paths start with '/usercreatures'
+// All paths start with '/creatures'
 
-//GET /users/creatures (index functionality)
-router.get('/:userId', async (req, res) => {
-    const creatures = await UserCreature.find({user: req.params.userId});
-    res.render('users/index.ejs', {creatures});
+// GET /creatures (index functionality)
+router.get('/', async (req, res) => {
+    const creatures = await UserCreature.find({user: req.user._id});
+    res.render('creatures/index.ejs', { creatures });
 });
 
-// router.new('/', async (req, res) => {
-//     const creatureId = req.body.creatures
-//     const creatureObj = await Creature.findById(creatureId);
-//     delete creatureObj._id;
-//     creatureObj.user = req.user._id;
-//     const userCreature = UserCreature.create(creatureObj);
-//     res.redirect(`/users/creatures/${req.user._id}`)
-// })
+
+// POST /creatures (create functionality)
+router.post('/', async (req, res) => {
+    try {
+        const templateCreatureId = req.body.creatureId;
+        const creature = await Creature.findById(templateCreatureId);
+        const creatureObj = creature.toObject();
+        delete creatureObj._id;
+        creatureObj.user = req.user._id;
+        creatureObj.templateCreatureId = templateCreatureId;
+        await UserCreature.create(creatureObj);
+        res.redirect(`/creatures`);
+      } catch (err) {
+        console.log(err);
+        res.redirect('/');
+      };
+});
 
 // GET /creatures/new --> new functionality/action
 router.get('/new', async (req, res) => {

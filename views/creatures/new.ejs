@@ -1,21 +1,19 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/_navbar.ejs') %>
 
-<div id="content">
- yop
-</div>
+<h1>Add Another Creature</h1>
 
-<% if (creatures.length) { %>
-    <form action="/users/creatures" method="GET">
-        <label for="creature-dropdown">Select a creature:</label>
-        <select id="creature-dropdown" name="creatures">
-            <option value="">--Select a creature--</option>
-            <% creatures.forEach(function(creature) { %>
-                <option value="<%= creature._id %>"><%= creature.name %></option>
-            <% }); %>
-        </select>
-        <button type="submit">Add creature</button>
-    </form>
-<% } %>
 
-<!-- <%- include('../partials/footer.ejs') %> -->
+<form action="/creatures" method="POST">
+    <label for="creature-dropdown">Select a creature:</label>
+    <select id="creature-dropdown" name="creatureId">
+        <option value="">--Select a creature--</option>
+        <% creatures.forEach(function(creature) { %>
+            <option value="<%= creature._id %>"><%= creature.name %></option>
+        <% }); %>
+    </select>
+    <button type="submit">Add Creature</button>
+</form>
+
+
+<%- include('../partials/footer.ejs') %>
