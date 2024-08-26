@@ -1,10 +1,37 @@
-<%- include('./partials/header.ejs') %>
-<%- include('./partials/_navbar.ejs') %>
+<%- include('../partials/header.ejs') %>
+<%- include('../partials/_navbar.ejs') %>
 
-<h1>Edit</h1>
+<h1>Edit <%= usercreature.name %></h1>
 
-    <button type="submit">Update Creature</button>
+    <form action="/creatures/<%= usercreature._id %>?_method=PUT" method="post">
+        <label for="name">Name: </label>
+        <input type="text" name="name" id="name" value="<%= usercreature.name %>">
+        <label for="level">Level: </label>
+        <input type="number" name="level" id="level" value="<%= usercreature.level %>">
+        <label for="eats">Eats: <%= usercreature.eats %> </label>
+        <label for="health">Health: </label>
+        <input type="number" name="hB" id="health" value="<%= usercreature.bs.h.b %>">
+        <label for="stamina">Stamina: </label>
+        <input type="number" name="sB" id="stamina" value="<%= usercreature.bs.s.b %>">
+        <label for="oxygen">Oxygen: </label>
+        <input type="number" name="oB" id="oxygen" value="<%= usercreature.bs.o.b %>">
+        <label for="food">Food: </label>
+        <input type="number" name="fB" id="food" value="<%= usercreature.bs.f.b %> ">
+        <label for="weight">Weight: </label>
+        <input type="number" name="wB" id="weight" value=" <%= usercreature.bs.w.b %> ">
+        <label for="melee">Melee: </label>
+        <input type="number" name="dB" id="melee" value=" <%= usercreature.bs.d.b %> ">
+        <label for="speed">Speed: </label>
+        <input type="number" name="mB" id="speed" value=" <%= usercreature.bs.m.b %> ">
+        <label for="torpor">Torpor: </label>
+        <input type="number" name="tB" id="torpor" value=" <%= usercreature.bs.t.b %> ">
+        <button type="submit">Update Creature</button>
+    </form>
 
 
 
-<%- include('./partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>
+
+
+
+

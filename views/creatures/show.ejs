@@ -23,7 +23,10 @@
     <p><%= usercreature.desc %></p>
 </div>
 
-<button class="btn" onclick="location.href='./edit.ejs'">Edit <%= usercreature.name %></button>
+<form action="/creatures/<%= usercreature._id %>/edit" method="get">
+    <button class="submit" >Edit <%= usercreature.name %></button>
+
+</form>
 <form action="/creatures/<%= usercreature._id %>?_method=DELETE" method="POST">
     <button type="submit">DELETE</button>
   </form>

@@ -43,10 +43,13 @@ router.get('/:id', async (req, res)  => {
 
 
 //GET /creatures/:id/edit --> edit functionality
-router.get('/:id', async (req, res) => {
-
-    res.render('creatures/edit.ejs')
+router.get('/:id/edit', async (req, res) => {
+    const usercreature = await UserCreature.findById(req.params.id);
+    res.render('creatures/edit.ejs', {usercreature})
 })
+
+//PUT /creatures/:id --> update functionality
+// router.update('')
 
 // DELETE /creatures/:id --> delete functionality 
 router.delete('/:id', async (req, res) => {
