@@ -1,37 +1,40 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/_navbar.ejs') %>
 
+
+
 <div>
     <h1>Add Another Creature</h1>
-    
     <section class='main'>
         <div class="firstcontainer">
             <!-- <img src="" alt="" id="logo"> -->
             <p> LOGO </p>
         </div>
         <div id="content" class="secondcontainer">
-            <form action="/creatures" method="POST">
-                <label for="creature-dropdown">Select a creature:</label>
-                <select id="creature-dropdown" name="creatureId">
-                    <option value="">--Select a creature--</option>
-                    <% creatures.forEach(function(creature) { %>
-                        <option value="<%= creature._id %>"><%= creature.name %></option>
-                    <% }); %>
-                </select>
-                <button type="submit">Add Creature</button>
-            </form>
-        </div>
+            <div class="backgroundimage"></div>
+            <div class="subcontainer">
+                <form action="/creatures" method="POST">
+                    <label for="creature-dropdown">Select a creature:</label>
+                    <select id="creature-dropdown" name="creatureId">
+                        <option value="">--Select a creature--</option>
+                        <% creatures.forEach(function(creature) { %>
+                            <option value="<%= creature._id %>"><%= creature.name %></option>
+                        <% }); %>
+                    </select>
+                    <button type="submit" class="functionbtn">Add Creature</button>
+                </form>
+            </div>
+        </div>    
         <div id="description" class="thirdcontainer">
         
-            <p>DESCRIPTION </p>
-        </div>
-    </section>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni molestiae perspiciatis corrupti ipsam corporis voluptate facere, quis provident quisquam blanditiis reiciendis incidunt nesciunt quam officia iste eveniet, ipsum accusantium voluptas?</p>
+        </div>    
+    </section>    
     <div>
     
-    </div>
+    </div>    
 
 </div>
-
 
 
 <%- include('../partials/footer.ejs') %>

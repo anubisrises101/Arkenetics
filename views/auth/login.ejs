@@ -1,12 +1,35 @@
 
  <%- include('../partials/header.ejs') %>
  <%- include('../partials/_navbar.ejs') %>
-<h1>Sign in</h1>
-<form action="/auth/login" method="POST">
-     <label for="username">Username:</label>
-     <input type="text" name="username" id="username" required />
-     <label for="password">Password:</label>
-     <input type="password" name="password" id="password" required />
-    <button type="submit">Sign in</button>
-</form>
- <%- include('../partials/footer.ejs') %>
+ <div>
+     <h1>Sign in</h1>
+     <section class='main'>
+        <div class="firstcontainer">
+            <!-- <img src="" alt="" id="logo"> -->
+            <p> LOGO </p>
+        </div>
+        <div id="content" class="secondcontainer">
+            <div class="backgroundimage"></div>
+            <div class="subcontainer">
+                <form action="/auth/login" method="POST">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" required />
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required />
+                    <button type="submit">Sign in</button>
+               </form>
+           </div>
+        </div>    
+        <div id="description" class="thirdcontainer">        
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni molestiae perspiciatis corrupti ipsam corporis voluptate facere, quis provident quisquam blanditiis reiciendis incidunt nesciunt quam officia iste eveniet, ipsum accusantium voluptas?</p>
+        </div>    
+    </section>    
+    <div>
+    
+    </div>    
+
+</div>
+<%- include('../partials/footer.ejs') %>
+ 
+ 
+ 

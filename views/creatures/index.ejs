@@ -1,32 +1,36 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/_navbar.ejs') %>
 
+
 <div>
-    
+    <h1 id="intro">Welcome to your Dino's</h1>
     <section class='main'>
         <div class="firstcontainer">
             <!-- <img src="" alt="" id="logo"> -->
             <p> LOGO </p>
         </div>
         <div id="content" class="secondcontainer">
-            <% if (creatures.length) { %>
-                <ul>
-                    <% creatures.forEach((creature) => { %>
-                    <li>
-                        <a href="/creatures/<%= creature._id %>"> <%= creature.name %> </a>
-                    </li>
-                    <% }) %>
-                </ul>
+            <div class="backgroundimage"></div>
+            <div class="subcontainer">
+                <% if (creatures.length) { %>
+                    <ul>
+                        <% creatures.forEach((creature) => { %>
+                        <li>
+                            <a href="/creatures/<%= creature._id %>" class="anchor"> <%= creature.name %> </a>
+                        </li>
+                        <% }) %>
+                    </ul>
                 <% } %>
-        </div>
+            </div>
+        </div>    
         <div id="description" class="thirdcontainer">
         
-            <p>DESCRIPTION </p>
-        </div>
-    </section>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni molestiae perspiciatis corrupti ipsam corporis voluptate facere, quis provident quisquam blanditiis reiciendis incidunt nesciunt quam officia iste eveniet, ipsum accusantium voluptas?</p>
+        </div>    
+    </section>    
     <div>
     
-    </div>
+    </div>    
 
 </div>
 
