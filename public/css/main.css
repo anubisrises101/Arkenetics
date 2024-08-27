@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    
   }
   
   body {
@@ -10,14 +9,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* grid-template-rows: 8vh 1fr 4vh; */
     background-image: url('https://i.imgur.com/jwUYdzb.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
   }
 
 #citation {
-  /* margin-top: 100vh; */
   margin-bottom: 0vh;
 }
   
@@ -30,7 +27,6 @@
     font-size: 2vh;
     color: rgb(0, 0, 0);
     height: 7vh;
-    
   }
   
 
@@ -52,14 +48,7 @@
     font-size: 1.5vmin;
     color: lightslategray;
   }
-  
-  /* main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 5vmin;
-  } */
-  
+
   form {
     display: grid;
     grid-template-columns: auto auto;
@@ -83,15 +72,7 @@
     grid-template-columns: 0.5fr 1fr 0.5fr;
     justify-content: space-around;
     align-items: center;
-    /* background-color: lightgray; */
     gap: 20px;
-
-    
-      /* #content {
-        width: 30vw;
-        height: 30vw;
-        border: 2px solid red;
-      } */
   }
 
   h1, h3 {
@@ -109,12 +90,12 @@
     width: 75%;
     margin-left: 10vh;
     height: 35vh;
-    background-image: url('https://i.imgur.com/EOSIyPY.png');
+    /* background-image: url('https://i.imgur.com/EOSIyPY.png');
     opacity: 0.8;
     background-size: cover;
     background-position: center;
     box-shadow: 0px 0px 10px 5px rgba(0, 255, 255, 0.705);
-    border-radius: 100px;
+    border-radius: 100px; */
   }
 
   .secondcontainer {
@@ -135,7 +116,6 @@
     border-radius: 12%;
     box-shadow: 0px 0px 10px 5px rgba(0, 255, 255, 0.705);
     opacity: 0.8;
-
   }
   
   .backgroundimage {
