@@ -106,9 +106,15 @@
   }
 
   .firstcontainer {
-    width: 50%;
+    width: 75%;
     margin-left: 10vh;
-    height: 30vh;
+    height: 35vh;
+    background-image: url('https://i.imgur.com/EOSIyPY.png');
+    opacity: 0.8;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 0px 10px 5px rgba(0, 255, 255, 0.705);
+    border-radius: 100px;
   }
 
   .secondcontainer {
@@ -174,4 +180,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  #logohome {
+    padding-left: 50vh;
+    padding-bottom: 15vh;
+  }
+
+  #logo {
+    padding-bottom: 8vh;
   }
