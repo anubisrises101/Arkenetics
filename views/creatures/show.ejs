@@ -1,34 +1,50 @@
 <%- include('../partials/header.ejs') %>
 <%- include('../partials/_navbar.ejs') %>
 
-<h1>Displaying <%= usercreature.name %> </h1>
-<p id="descript">The information listed on this page is only BASE stats at level 1. To edit the creature to reflect your information please press Edit</p>
 
-<img src="" id="logo">
-<img src="" id="background">
+<div>
+    <h1>Displaying <%= usercreature.name %> </h1>
+    
+    <section class='main'>
+        <div class="firstcontainer">
+            <!-- <img src="" alt="" id="logo"> -->
+            <p> LOGO </p>
+        </div>
+        <div id="content" class="secondcontainer">
+            <div id="stats">
+                <h3>Name: <%= usercreature.name %></h3>
+                <p>Level: <%= usercreature.level %></p>
+                <p>Eats: <%= usercreature.eats %></p>
+                <p>Health: <%= usercreature.bs.h %></p>
+                <p>Stamina: <%= usercreature.bs.s %></p>
+                <p>Oxygen: <%= usercreature.bs.o %></p>
+                <p>Food: <%= usercreature.bs.f %></p>
+                <p>Weight: <%= usercreature.bs.w %></p>
+                <p>Melee: <%= usercreature.bs.d %></p>
+                <p>Speed: <%= usercreature.bs.m %></p>
+                <p>Torpor: <%= usercreature.bs.t %></p>
+                <p>Is carried by: <%= usercreature.carry %></p>
+                <p><%= usercreature.desc %></p>
+            </div>
+            <form action="/creatures/<%= usercreature._id %>/edit" method="GET">
+                <button class="submit" >Edit <%= usercreature.name %></button>
+            
+            </form>
+            <form action="/creatures/<%= usercreature._id %>?_method=DELETE" method="POST">
+                <button type="submit">DELETE</button>
+              </form>
+        </div>
+        <div id="description" class="thirdcontainer">
+        
+            <p id="descript">The information listed on this page is only BASE stats at level 1. To edit the creature to reflect your information please press Edit</p>
+        </div>
+    </section>
+    <div>
+    
+    </div>
 
-<div id="stats">
-    <h3>Name: <%= usercreature.name %></h3>
-    <p>Level: <%= usercreature.level %></p>
-    <p>Eats: <%= usercreature.eats %></p>
-    <p>Health: <%= usercreature.bs.h %></p>
-    <p>Stamina: <%= usercreature.bs.s %></p>
-    <p>Oxygen: <%= usercreature.bs.o %></p>
-    <p>Food: <%= usercreature.bs.f %></p>
-    <p>Weight: <%= usercreature.bs.w %></p>
-    <p>Melee: <%= usercreature.bs.d %></p>
-    <p>Speed: <%= usercreature.bs.m %></p>
-    <p>Torpor: <%= usercreature.bs.t %></p>
-    <p>Is carried by: <%= usercreature.carry %></p>
-    <p><%= usercreature.desc %></p>
 </div>
 
-<form action="/creatures/<%= usercreature._id %>/edit" method="GET">
-    <button class="submit" >Edit <%= usercreature.name %></button>
 
-</form>
-<form action="/creatures/<%= usercreature._id %>?_method=DELETE" method="POST">
-    <button type="submit">DELETE</button>
-  </form>
 
 <%- include('../partials/footer.ejs') %>
