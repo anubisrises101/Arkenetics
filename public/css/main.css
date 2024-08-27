@@ -7,12 +7,13 @@
   body {
     margin: 0;
     height: 100vh;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     /* grid-template-rows: 8vh 1fr 4vh; */
     background-image: url('https://i.imgur.com/jwUYdzb.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    padding-bottom: 20vmin;
   }
 
 #citation {
@@ -73,4 +74,21 @@
   button:hover {
     background-color: lightslategray;
     color: white;
+  }
+
+  .main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: lightgray;
+    
+    #content {
+      width: 40vw;
+      height: 40vw;
+      border: 2px solid red;
+    }
+  }
+
+  h1, h3 {
+    text-align: center;
   }
