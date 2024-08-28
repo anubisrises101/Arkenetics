@@ -171,3 +171,10 @@
     align-items: center;
     justify-content: space-around;
   }
+
+  #editform {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 2vmin;
+  }
+  

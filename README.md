@@ -4,7 +4,9 @@
 
 Welcome to **Arkenetics**, a web application designed to enhance your experience with the video game *ARK: Survival Evolved*. This app allows you to effortlessly keep track of your dino breeders and their stats, ensuring that your breeding projects are managed with precision and ease.
 
-![Ark A logo with adult and baby dinosaurs climbing on it](/assets/Arkenetics%20Logo%20v15.png)
+![Arkenetics Logo](https://i.imgur.com/yjI1TOi.png)
+
+### [Visit the Deployed Website](https://arkenetics-eb23a6f0e52b.herokuapp.com/)
 
 ## Table of Contents
 
@@ -63,6 +65,6 @@ With **Arkenetics**, managing your ARK breeding projects becomes a breeze. Track
 
 ## Contact
 
-If you have any questions, suggestions, or feedback, feel free to reach out at pmckenziecoding@gmail.com . Your input is highly valued and will help make Arkenetics even better!
+If you have any questions, suggestions, or feedback, feel free to reach out at pmckenziecoding@gmail.com. Your input is highly valued and will help make Arkenetics even better!
 
 Thank you once again for using Arkenetics. Happy breeding!

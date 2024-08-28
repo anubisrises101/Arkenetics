@@ -9,43 +9,53 @@
         </div>
         <div id="content" class="secondcontainer">
             <div class="backgroundimage"></div>
-            <div class="subcontainer">
-                <form action="/creatures/<%= usercreature._id %>?_method=PUT" method="POST">
-                    <label for="name" class="label">Name: </label>
-                    <input type="text" name="name" id="name" value="<%= usercreature.name %>">
-                    
-                    <label for="level" class="label">Level: </label>
-                    <input type="number" name="level" id="level" value="<%= usercreature.level %>">
-                    
-                    <label for="eats" class="label">Eats: <%= usercreature.eats %> </label>
-                    <br>
-                    <label for="health" class="label">Health: </label>
-                    <input type="number" name="hB" id="health" value="<%= usercreature.bs.h.b %>">
-                    
-                    <label for="stamina" class="label">Stamina: </label>
-                    <input type="number" name="sB" id="stamina" value="<%= usercreature.bs.s.b %>">
-                    
-                    <label for="oxygen" class="label">Oxygen: </label>
-                    <input type="number" name="oB" id="oxygen" value="<%= usercreature.bs.o.b %>">
-                    
-                    <label for="food" class="label">Food: </label>
-                    <input type="number" name="fB" id="food" value="<%= usercreature.bs.f.b %>">
-                    
-                    <label for="weight" class="label">Weight: </label>
-                    <input type="number" name="wB" id="weight" value="<%= usercreature.bs.w.b %>">
-                    
-                    <label for="melee" class="label">Melee: </label>
-                    <input type="number" name="dB" id="melee" value="<%= usercreature.bs.d.b %>">
-                    
-                    <label for="speed" class="label">Speed: </label>
-                    <input type="number" name="mB" id="speed" value="<%= usercreature.bs.m.b %>">
-    
-                    <label for="torpor" class="label">Torpor: </label>
-                    <input type="number" name="tB" id="torpor" value="<%= usercreature.bs.t.b %>">
-                    
-                    <button type="submit">Update Creature</button>
-                </form>
-            </div>
+              <div class="subcontainer">
+                  <form action="/creatures/<%= usercreature._id %>?_method=PUT" method="POST" id="editform">
+                      <label for="name" class="label">Name: </label>
+                      <input type="text" name="name" id="name" value="<%= usercreature.name %>">
+                      <br>
+                      <label for="level" class="label">Level: </label>
+                      <input type="number" name="level" id="level" value="<%= usercreature.level %>">
+                      <br>
+                      <label for="eats" class="label">Eats: <%= usercreature.eats %> </label>
+                      <div></div>
+                      <div></div>
+                      <label for="health" class="label">Health: </label>
+                      <input type="number" name="hB" id="health" value="<%= usercreature.bs.h.b %>">
+                      <div id="healthpts">1</div>
+                      
+                      <label for="stamina" class="label">Stamina: </label>
+                      <input type="number" name="sB" id="stamina" value="<%= usercreature.bs.s.b %>">
+                      <div id="staminapts">1</div>
+
+                      <label for="oxygen" class="label">Oxygen: </label>
+                      <input type="number" name="oB" id="oxygen" value="<%= usercreature.bs.o.b %>">
+                      <div id="oxygenpts">1</div>
+
+                      <label for="food" class="label">Food: </label>
+                      <input type="number" name="fB" id="food" value="<%= usercreature.bs.f.b %>">
+                      <div id="foodpts">1</div>
+
+                      <label for="weight" class="label">Weight: </label>
+                      <input type="number" name="wB" id="weight" value="<%= usercreature.bs.w.b %>">
+                      <div id="weightpts">1</div>
+
+                      <label for="melee" class="label">Melee: </label>
+                      <input type="number" name="dB" id="melee" value="<%= usercreature.bs.d.b %>">
+                      <div id="meleepts">1</div>
+
+                      <label for="speed" class="label">Speed: </label>
+                      <input type="number" name="mB" id="speed" value="<%= usercreature.bs.m.b %>">
+                      <div id="speedpts">1</div>
+
+                      <label for="torpor" class="label">Torpor: </label>
+                      <input type="number" name="tB" id="torpor" value="<%= usercreature.bs.t.b %>">
+                      <div id="torporpts">1</div>
+                      
+                      <div></div>
+                      <button type="submit">Update Creature</button>
+                  </form>
+              </div>
         </div>    
         <div id="description" class="thirdcontainer">
             <p>Getting Started</p>
@@ -78,16 +88,69 @@
               </ul>      
           </div>>    
     </section>    
-    <div>
+</div> 
 
-    </div>    
+<script>
 
-</div>    
-
-
+  let creatureHealthBase = <%- JSON.stringify(usercreature.bs.h.b) %>
+  let creatureHpWeight = <%- JSON.stringify(usercreature.bs.h.w) %>
+  const healthInput = document.querySelector('#health');
+  const healthPts = document.querySelector('#healthpts');
+  healthInput.addEventListener('input', evt => {
+    healthPts.innerText = Math.floor((evt.target.value - creatureHealthBase)/creatureHpWeight)
+  });
+  let creatureStaminaBase = <%- JSON.stringify(usercreature.bs.s.b) %>
+  let creatureStamWeight = <%- JSON.stringify(usercreature.bs.s.w) %>
+  const staminaInput = document.querySelector('#stamina');
+  const staminaPts = document.querySelector('#staminapts');
+  staminaInput.addEventListener('input', evt => {
+    staminaPts.innerText = Math.floor((evt.target.value - creatureStaminaBase)/creatureStamWeight)
+  });
+  let creatureOxygenBase = <%- JSON.stringify(usercreature.bs.o.b) %>
+  let creatureOxyWeight = <%- JSON.stringify(usercreature.bs.o.w) %>
+  const oxygenInput = document.querySelector('#oxygen');
+  const oxygenPts = document.querySelector('#oxygenpts');
+  oxygenInput.addEventListener('input', evt => {
+    oxygenPts.innerText = Math.floor((evt.target.value - creatureOxygenBase)/creatureOxyWeight)
+  });
+  let creatureFoodBase = <%- JSON.stringify(usercreature.bs.f.b) %>
+  let creatureFoodWeight = <%- JSON.stringify(usercreature.bs.f.w) %>
+  const foodInput = document.querySelector('#food');
+  const foodPts = document.querySelector('#foodpts');
+  foodInput.addEventListener('input', evt => {
+    foodPts.innerText = Math.floor((evt.target.value - creatureFoodBase)/creatureFoodWeight)
+  });
+  let creatureWeightBase = <%- JSON.stringify(usercreature.bs.w.b) %>
+  let creatureWeightWeight = <%- JSON.stringify(usercreature.bs.w.w) %>
+  const weightInput = document.querySelector('#weight');
+  const weightPts = document.querySelector('#weightpts');
+  weightInput.addEventListener('input', evt => {
+    weightPts.innerText = Math.floor((evt.target.value - creatureWeightBase)/creatureWeightWeight)
+  });
+  let creatureMeleeBase = <%- JSON.stringify(usercreature.bs.d.b) %>
+  let creatureMeleeWeight = <%- JSON.stringify(usercreature.bs.d.w) %>
+  const meleeInput = document.querySelector('#melee');
+  const meleePts = document.querySelector('#meleepts');
+  meleeInput.addEventListener('input', evt => {
+    meleePts.innerText = Math.floor((evt.target.value - creatureMeleeBase)/creatureMeleeWeight)
+  });
+  let creatureSpeedBase = <%- JSON.stringify(usercreature.bs.m.b) %>
+  let creatureSpeedWeight = <%- JSON.stringify(usercreature.bs.m.w) %>
+  const speedInput = document.querySelector('#speed');
+  const speedPts = document.querySelector('#speedpts');
+  speedInput.addEventListener('input', evt => {
+    speedPts.innerText = Math.floor((evt.target.value - creatureSpeedBase)/creatureSpeedWeight)
+  });
+  let creatureTorporBase = <%- JSON.stringify(usercreature.bs.t.b) %>
+  let creatureTorporWeight = <%- JSON.stringify(usercreature.bs.t.w) %>
+  const torporInput = document.querySelector('#torpor');
+  const torporPts = document.querySelector('#torporpts');
+  torporInput.addEventListener('input', evt => {
+    torporPts.innerText = Math.floor((evt.target.value - creatureTorporBase)/creatureTorporWeight)
+  });
+  
+</script>
 
 <%- include('../partials/footer.ejs') %>
-
-
 
 
