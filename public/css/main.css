@@ -90,12 +90,6 @@
     width: 75%;
     margin-left: 10vh;
     height: 35vh;
-    /* background-image: url('https://i.imgur.com/EOSIyPY.png');
-    opacity: 0.8;
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0px 0px 10px 5px rgba(0, 255, 255, 0.705);
-    border-radius: 100px; */
   }
 
   .secondcontainer {
@@ -109,6 +103,11 @@
   }
   
   .thirdcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
     height: 65vh;
     background-image: url('https://i.imgur.com/sIBz4L3.png?3');
     background-size: contain;
@@ -162,11 +161,13 @@
     align-items: center;
   }
 
-  #logohome {
-    padding-left: 50vh;
-    padding-bottom: 15vh;
-  }
-
   #logo {
     padding-bottom: 8vh;
+  }
+
+  #descripthome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
   }

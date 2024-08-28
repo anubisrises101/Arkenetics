@@ -11,7 +11,6 @@ router.get('/', async (req, res) => {
     res.render('creatures/index.ejs', { creatures });
 });
 
-
 // POST /creatures (create functionality)
 router.post('/', async (req, res) => {
     try {
@@ -39,14 +38,14 @@ router.get('/new', async (req, res) => {
 router.get('/:id', async (req, res)  => {
     const usercreature = await UserCreature.findById(req.params.id);
     res.render('creatures/show.ejs', {usercreature})
-})
+});
 
 
 //GET /creatures/:id/edit --> edit functionality
 router.get('/:id/edit', async (req, res) => {
     const usercreature = await UserCreature.findById(req.params.id);
     res.render('creatures/edit.ejs', {usercreature})
-})
+});
 
 //PUT /creatures/:id --> update functionality
 router.put('/:id', async (req, res) => {
@@ -68,7 +67,7 @@ router.put('/:id', async (req, res) => {
     }
     await UserCreature.findByIdAndUpdate(req.params.id, updatedCreature);
     res.redirect('/creatures')
-})
+});
 
 // DELETE /creatures/:id --> delete functionality 
 router.delete('/:id', async (req, res) => {
@@ -80,9 +79,6 @@ router.delete('/:id', async (req, res) => {
         console.log(err)
         res.redirect('/')
     }
-})
+});
 
-
-
-//hhow to create a userCreature obj
 module.exports = router;
