@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const Creature = require('../models/creature'); // Assuming your model is in the models directory
-const creatures = require('../data copy.js')
+const Creature = require('../models/creature'); 
 
 // mongoose.connect('insert your URI')
 //     .then(() => console.log('MongoDB connected...'))
@@ -48,16 +47,6 @@ function chunkArray(dataArray, chunkSize) {
     }
   }
   
-  // Run the seeding script
   seedDatabase();
 
 console.log(dataToInsert[0])
-
-
-
-// Creature.insertMany(dataToInsert)
-//     .then(() => {
-//         console.log('Data seeded successfully');
-//         mongoose.connection.close();
-//     })
-//     .catch(err => console.log(err));
